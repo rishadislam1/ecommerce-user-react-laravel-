@@ -11,6 +11,8 @@ import Refund from "../pages/Refund/Refund";
 import ProductDetailsPage from "../pages/ProductDetails/ProductDetailsPage";
 import NotificationPage from "../pages/Notification/NotificationPage";
 import FavoritePage from "../pages/Favorite/FavoritePage";
+import CartPage from "../pages/Cart/CartPage";
+import AboutPage from "../pages/About/AboutPage";
 
   const router = createBrowserRouter([
     {
@@ -52,6 +54,14 @@ import FavoritePage from "../pages/Favorite/FavoritePage";
             {
               path: '/favorite',
               element: <FavoritePage/>
+            },
+            {
+              path: '/cart',
+              element: <CartPage/>
+            },
+            {
+              path: '/about',
+              element: <AboutPage/>
             }
 
         ]

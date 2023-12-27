@@ -1,6 +1,45 @@
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { usePostContactMutation } from "../../redux/features/contact/contactApi";
+import Swal from "sweetalert2";
 
 const Contact = () => {
+
+  const [postContact,{data:postContactData,isLoading}] = usePostContactMutation();
+
+  const handleFormSubmit = (e)=>{
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
+
+    console.log(name,email,message);
+
+    const data= {
+      name: name,
+      email: email,
+      message: message
+    }
+
+    postContact(data);
+    if(!isLoading && postContactData){
+      Swal.fire({
+        title: "Your Message Sent Successfully",
+        text: "Thanks For Contacting With Us",
+        icon: "success"
+      });
+      form.reset();
+    }
+    else{
+      Swal.fire({
+        title: "Sorry",
+        text: "Something Went Wrong",
+        icon: "error"
+      });
+    }
+
+  }
+
   return (
     <div>
       <Container>
@@ -20,27 +59,30 @@ const Contact = () => {
                 sm={12}
                 xs={12}
               >
-                <Form className="onboardForm">
+                <Form className="onboardForm" onSubmit={handleFormSubmit} >
                   <h4 className="section-title-login">CONTACT WITH US </h4>
                   <h6 className="section-sub-title">Please Contact With Us </h6>
                   <input
                     className="form-control m-2"
                     type="text"
-                    placeholder="Enter Mobile Number"
+                    placeholder="Enter Your Name"
+                    name="name"
                   />
 
                   <input
                     className="form-control m-2"
                     type="email"
                     placeholder="Enter Email"
+                    name="email"
                   />
 
                   <input
                     className="form-control m-2"
                     type="text"
                     placeholder="Enter Your Message"
+                    name="message"
                   />
-                  <Button className="btn btn-block m-2 site-btn-login">
+                  <Button type="submit" className="btn btn-block m-2 site-btn-login">
                     {" "}
                     Send{" "}
                   </Button>

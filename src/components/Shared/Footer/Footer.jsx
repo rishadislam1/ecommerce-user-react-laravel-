@@ -30,7 +30,7 @@ const Footer = () => {
 
             <Col className="p-2" lg={3} md={3} sm={6} xs={12}>
               <h5 className="footer-menu-title">THE COMPANY</h5>
-              <Link to="/" className="footer-link">
+              <Link to="/about" className="footer-link">
                 {" "}
                 About Us
               </Link>
@@ -75,6 +75,8 @@ const Footer = () => {
                 <img className="mt-2" src={Apple} />
               </a>
               <br></br>
+              Change Your Language <br></br>
+          <div id="google_translate_element">  </div>
             </Col>
           </Row>
         </Container>
