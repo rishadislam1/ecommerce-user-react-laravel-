@@ -3,9 +3,8 @@ import MegaMenu from "./MegaMenu";
 import HomeSlider from "./HomeSlider";
 
 
-
 const HomeTop = () => {
-    
+   
     return (
         <div>
             <Container className="p-0 m-0 overflow-hidden" fluid>

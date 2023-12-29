@@ -1,9 +1,8 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Form } from "react-router-dom";
 import Login from "../../assets/images/login.png";
-import { Link } from "react-router-dom";
 
-const UserLogin = () => {
+const ResetPassword = () => {
   return (
     <div>
       <Container>
@@ -24,28 +23,37 @@ const UserLogin = () => {
                 xs={12}
               >
                 <Form className="onboardForm">
-                  <h4 className="section-title-login"> USER SING IN </h4>
-              <br />
+                  <h4 className="section-title-login"> PASSWORD RESET </h4>
+                  <br />
+
+                  <input
+                    className="form-control m-2"
+                    type="text"
+                    placeholder="Enter Your PIN"
+                  />
+
                   <input
                     className="form-control m-2"
                     type="email"
                     placeholder="Enter Email"
                   />
 
-            
                   <input
                     className="form-control m-2"
                     type="password"
-                    placeholder="*****"
+                    placeholder="Password"
                   />
-                  <Button className="btn btn-block m-2 site-btn-login">
-                    LogIn
-                  </Button>
-                  <br /> <hr /> <br />
-                <p>Forget My Password? <strong><b><Link to='/forgetpassword'>Forget Password</Link> </b></strong> </p>
-                </Form>
 
-              
+                  <input
+                    className="form-control m-2"
+                    type="password"
+                    placeholder="Confirm Password"
+                  />
+
+                  <Button className="btn btn-block m-2 site-btn-login">
+                    Reset
+                  </Button>
+                </Form>
               </Col>
 
               <Col className="p-0 Desktop m-0" md={6} lg={6} sm={6} xs={6}>
@@ -59,4 +67,4 @@ const UserLogin = () => {
   );
 };
 
-export default UserLogin;
+export default ResetPassword;

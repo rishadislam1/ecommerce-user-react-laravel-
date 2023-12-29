@@ -13,6 +13,12 @@ import NotificationPage from "../pages/Notification/NotificationPage";
 import FavoritePage from "../pages/Favorite/FavoritePage";
 import CartPage from "../pages/Cart/CartPage";
 import AboutPage from "../pages/About/AboutPage";
+import ProductCategory from "../pages/ProductCategory/ProductCategory";
+import ProductSubCategory from "../pages/ProductSubcategory/ProductSubCategory";
+import SearchPage from "../pages/SearchPage/SearchPage";
+import RegisterPage from "../pages/Register/RegisterPage";
+import ForgetPassword from "../pages/ForgetPassword/ForgetPassword";
+import ResetPassword from "../pages/ResetPassword/ResetPassword";
 
   const router = createBrowserRouter([
     {
@@ -26,6 +32,18 @@ import AboutPage from "../pages/About/AboutPage";
             {
               path: '/login',
               element: <UserLoginPage></UserLoginPage>
+            },
+            {
+              path: '/register',
+              element: <RegisterPage/>
+            },
+            {
+              path: '/forgetpassword',
+              element: <ForgetPassword/>
+            },
+            {
+              path: '/resetpassword/:id',
+              element: <ResetPassword/>
             },
             {
               path: '/contact',
@@ -62,6 +80,18 @@ import AboutPage from "../pages/About/AboutPage";
             {
               path: '/about',
               element: <AboutPage/>
+            },
+            {
+              path:'/productcategory/:category',
+              element: <ProductCategory/>
+            },
+            {
+              path:'/productsubcategory/:category/:subcategory',
+              element: <ProductSubCategory/>
+            },
+            {
+              path:'/search/:key',
+              element: <SearchPage/>
             }
 
         ]

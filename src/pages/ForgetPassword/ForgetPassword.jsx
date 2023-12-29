@@ -1,12 +1,11 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Form } from "react-router-dom";
 import Login from "../../assets/images/login.png";
-import { Link } from "react-router-dom";
 
-const UserLogin = () => {
-  return (
-    <div>
-      <Container>
+const ForgetPassword = () => {
+    return (
+        <div>
+            <Container>
         <Row className="p-2">
           <Col
             className="shadow-sm bg-white mt-2"
@@ -24,7 +23,7 @@ const UserLogin = () => {
                 xs={12}
               >
                 <Form className="onboardForm">
-                  <h4 className="section-title-login"> USER SING IN </h4>
+                  <h4 className="section-title-login"> Forget Password </h4>
               <br />
                   <input
                     className="form-control m-2"
@@ -33,16 +32,11 @@ const UserLogin = () => {
                   />
 
             
-                  <input
-                    className="form-control m-2"
-                    type="password"
-                    placeholder="*****"
-                  />
+                 
                   <Button className="btn btn-block m-2 site-btn-login">
-                    LogIn
+                    Submit
                   </Button>
-                  <br /> <hr /> <br />
-                <p>Forget My Password? <strong><b><Link to='/forgetpassword'>Forget Password</Link> </b></strong> </p>
+               
                 </Form>
 
               
@@ -55,8 +49,8 @@ const UserLogin = () => {
           </Col>
         </Row>
       </Container>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default UserLogin;
+export default ForgetPassword;

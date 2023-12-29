@@ -1,26 +1,38 @@
 import { Col, Container, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import AllHeader from "../Text/AllHeader";
+import { useGetMenuQuery } from "../../redux/features/navMenu/navMenuApi";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
+  const { data: meghaMenuItems } = useGetMenuQuery();
   return (
     <div>
       <Container className="text-center" fluid>
-       
-        <AllHeader header={'CATEGORIES'} text={'Some Of Our categories, You May Like'}></AllHeader>
+        <AllHeader
+          header={"CATEGORIES"}
+          text={"Some Of Our categories, You May Like"}
+        ></AllHeader>
+
         <Row>
-          <Col xl={6} lg={6} md={2} sm={12} xs={12}>
-            <Row>
-              <Col xl={3} lg={3} md={3} sm={6} xs={6}>
-                <Card className="h-100 w-100 text-center">
-                  <Card.Body>
-                    <img className="center" src="" alt="" />
-                    <h5 className="category-name"></h5>
-                  </Card.Body>
-                </Card>
+          {meghaMenuItems?.map((menu) => (
+            <>
+              <Col xl={2} lg={2} md={3} sm={6} xs={6}>
+                <Link to={`productcategory/${menu.category_name}`}>
+                  <Card className="h-100 w-100 text-center">
+                    <Card.Body>
+                      <img
+                        className="center"
+                        src={menu.category_image}
+                        alt=""
+                      />
+                      <h5 className="category-name"> {menu.category_name}</h5>
+                    </Card.Body>
+                  </Card>
+                </Link>
               </Col>
-            </Row>
-          </Col>
+            </>
+          ))}
         </Row>
       </Container>
     </div>
