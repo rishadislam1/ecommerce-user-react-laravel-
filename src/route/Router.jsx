@@ -19,6 +19,8 @@ import SearchPage from "../pages/SearchPage/SearchPage";
 import RegisterPage from "../pages/Register/RegisterPage";
 import ForgetPassword from "../pages/ForgetPassword/ForgetPassword";
 import ResetPassword from "../pages/ResetPassword/ResetPassword";
+import PrivateRoute from "./PrivateRoute";
+import ProfilePage from "../pages/User/Profile/ProfilePage";
 
   const router = createBrowserRouter([
     {
@@ -67,7 +69,7 @@ import ResetPassword from "../pages/ResetPassword/ResetPassword";
             },
             {
               path: '/notification',
-              element: <NotificationPage/>
+              element: <PrivateRoute><NotificationPage/></PrivateRoute>
             },
             {
               path: '/favorite',
@@ -92,6 +94,10 @@ import ResetPassword from "../pages/ResetPassword/ResetPassword";
             {
               path:'/search/:key',
               element: <SearchPage/>
+            },
+            {
+              path: '/user',
+              element: <PrivateRoute><ProfilePage></ProfilePage></PrivateRoute>
             }
 
         ]

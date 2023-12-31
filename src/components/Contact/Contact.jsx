@@ -13,7 +13,6 @@ const Contact = () => {
     const email = form.email.value;
     const message = form.message.value;
 
-    console.log(name,email,message);
 
     const data= {
       name: name,

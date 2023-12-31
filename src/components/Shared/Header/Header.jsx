@@ -8,6 +8,9 @@ import { IoMdCart } from "react-icons/io";
 import { useGetIpQuery } from "../../../redux/features/visitor/visitorApi";
 import { useGetNotificationsQuery } from "../../../redux/features/notifications/notifications";
 import { useState } from "react";
+import useAuthCheck from "../../../hooks/useAuthChcek";
+import { useDispatch, useSelector } from "react-redux";
+import { userLoggedOut } from "../../../redux/features/auth/authSlice";
 
 const Header = () => {
   const [search,setSearch] = useState('');
@@ -16,6 +19,15 @@ const Header = () => {
 
   const unreadNotifications = notifications?.filter(notification=>notification.status==='unread');
 
+  useAuthCheck();
+
+  const {user} = useSelector(state=>state.auth);
+  const dispatch = useDispatch();
+  const handleLogout = ()=>{
+    dispatch(userLoggedOut());
+    localStorage.clear();
+  }
+  
  
 
   return (
@@ -60,14 +72,17 @@ const Header = () => {
                 <a className="btn">
                   <i className="fa h4 fa-mobile-alt"></i>
                 </a>
-                <Link to="/login" className="h4 btn">
+                {
+                  user?<button onClick={handleLogout} className="btn btn-success">Logout</button>:<>  <Link to="/login" className="h4 btn">
                   LOGIN
                 </Link>
 
                 <Link to="/register" className="h4 btn">
                   Register
                 </Link>
-
+</>
+                }
+              
                 <Link to="/cart">
                   {" "}
                   <Button className="cart-btn">

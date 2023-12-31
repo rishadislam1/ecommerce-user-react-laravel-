@@ -6,7 +6,7 @@ import { useGetRemarksQuery } from "../../redux/features/remarks/remarks";
 
 const NewArrival = () => {
   const { data: newArrivals } = useGetRemarksQuery("NEW");
-  console.log(newArrivals);
+  
   var settings = {
     dots: true,
     infinite: true,
